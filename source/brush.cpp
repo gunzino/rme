@@ -86,6 +86,8 @@ void Brushes::init()
 	addBrush(g_gui.rook_brush = newd FlagBrush(TILESTATE_NOPVP));
 	addBrush(g_gui.nolog_brush = newd FlagBrush(TILESTATE_NOLOGOUT));
 	addBrush(g_gui.pvp_brush = newd FlagBrush(TILESTATE_PVPZONE));
+	addBrush(g_gui.hardcore_pvp_brush = newd FlagBrush(TILESTATE_HARDCORE_PVP));
+	addBrush(g_gui.resting_zone_brush = newd FlagBrush(TILESTATE_RESTINGAREAZONE));
 
 	GroundBrush::init();
 	WallBrush::init();
@@ -265,6 +267,8 @@ std::string FlagBrush::getName() const
 		case TILESTATE_NOPVP: return "No combat zone brush (0x04)";
 		case TILESTATE_NOLOGOUT: return "No logout zone brush (0x08)";
 		case TILESTATE_PVPZONE: return "PVP Zone brush (0x10)";
+		case TILESTATE_HARDCORE_PVP: return "Hardcore-PVP Zone brush (0x02)";
+		case TILESTATE_RESTINGAREAZONE: return "Resting area Zone brush (0x31)";
 	}
 	return "Unknown flag brush";
 }
@@ -276,6 +280,8 @@ int FlagBrush::getLookID() const
 		case TILESTATE_NOPVP: return EDITOR_SPRITE_NOPVP_TOOL;
 		case TILESTATE_NOLOGOUT: return EDITOR_SPRITE_NOLOG_TOOL;
 		case TILESTATE_PVPZONE: return EDITOR_SPRITE_PVPZ_TOOL;
+		case TILESTATE_HARDCORE_PVP: return EDITOR_SPRITE_HARDCOREPVP_TOOL;
+		case TILESTATE_RESTINGAREAZONE: return EDITOR_SPRITE_RESTINGAREA_TOOL;
 	}
 	return 0;
 }

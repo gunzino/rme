@@ -286,6 +286,16 @@ bool GraphicManager::loadEditorSprites()
 			loadPNGFile(pvp_zone_small_png),
 			loadPNGFile(pvp_zone_png)
 		);
+	sprite_space[EDITOR_SPRITE_HARDCOREPVP_TOOL] =
+		newd EditorSprite(
+			loadPNGFile(pvp_zone_small_png),
+			loadPNGFile(pvp_zone_png)
+		);
+	sprite_space[EDITOR_SPRITE_RESTINGAREA_TOOL] =
+		newd EditorSprite(
+			loadPNGFile(no_pvp_small_png),
+			loadPNGFile(no_pvp_png)
+		);
 	sprite_space[EDITOR_SPRITE_NOLOG_TOOL] =
 		newd EditorSprite(
 			loadPNGFile(no_logout_small_png),

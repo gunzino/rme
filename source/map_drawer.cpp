@@ -453,6 +453,13 @@ void MapDrawer::DrawSecondaryMap(int map_z)
 				if(options.show_special_tiles && tile->getMapFlags() & TILESTATE_NOPVP) {
 					g /= 2;
 				}
+				if (options.show_special_tiles && tile->getMapFlags() & TILESTATE_HARDCORE_PVP) {
+					r = r / 2;
+					b = r / 2;
+				}
+				if (options.show_special_tiles && tile->getMapFlags() & TILESTATE_RESTINGAREAZONE) {
+					g /= 3;
+				}
 				BlitItem(draw_x, draw_y, tile, tile->ground, true, r, g, b, 160);
 			}
 
@@ -1497,6 +1504,16 @@ void MapDrawer::DrawTile(TileLocation* location)
 
 			if(showspecial && tile->getMapFlags() & TILESTATE_NOPVP) {
 				g /= 2;
+			}
+			if (showspecial && tile->getMapFlags() & TILESTATE_HARDCORE_PVP) {
+				r = 153;
+				g = 0;
+				b = 153;
+			}
+			if (showspecial && tile->getMapFlags() & TILESTATE_RESTINGAREAZONE) {
+				r = 76;
+				g = 153;
+				b = 0;
 			}
 		}
 

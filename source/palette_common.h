@@ -191,6 +191,8 @@ public:
 	void OnClickNOPVPBrushButton(wxCommandEvent& event);
 	void OnClickNoLogoutBrushButton(wxCommandEvent& event);
 	void OnClickPVPZoneBrushButton(wxCommandEvent& event);
+	void OnClickHardcorePVPZoneBrushButton(wxCommandEvent& event);
+	void OnClickRestingZoneBrushButton(wxCommandEvent& event);
 public:
 	void DeselectAll();
 
@@ -211,6 +213,8 @@ public:
 	BrushButton* nopvpBrushButton;
 	BrushButton* nologBrushButton;
 	BrushButton* pvpzoneBrushButton;
+	BrushButton* hardcorepvpBrushButton;
+	BrushButton* restingzoneBrushButton;
 
 	DECLARE_EVENT_TABLE()
 };
