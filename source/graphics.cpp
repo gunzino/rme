@@ -434,7 +434,9 @@ bool GraphicManager::loadSpriteMetadata(const FileName& datafile, wxString& erro
 		has_frame_groups = dat_format >= DAT_FORMAT_1057;
 	}
 
-	uint16_t id = minID;
+	// id must be able to exceed 65535: maxID = item_count + creature_count,
+	// and both counts can be near the uint16 limit on custom clients.
+	uint32_t id = minID;
 	// loop through all ItemDatabase until we reach the end of file
 	while(id <= maxID) {
 		GameSprite* sType = newd GameSprite();

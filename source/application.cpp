@@ -644,11 +644,8 @@ void MainFrame::PrepareDC(wxDC& dc)
 // This is necessary for cmake to understand that it needs to set the executable
 int main(int argc, char** argv)
 {
-	wxEntryStart(argc, argv); // Start the wxWidgets library
-	Application* app = new Application(); // Create the application object
-	wxApp::SetInstance(app); // Informs wxWidgets that app is the application object
-	wxEntry(); // Call the wxEntry() function to start the application execution
-	wxEntryCleanup(); // Clear the wxWidgets library
-	return 0;
+	// wxIMPLEMENT_APP provides the app initializer; wxEntry runs init + main loop + cleanup.
+	// Calling wxEntryStart followed by wxEntry() would initialize wxWidgets twice.
+	return wxEntry(argc, argv);
 }
 #endif
